@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Autodesk Viewer Demo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section featured 
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            <img src="~/Images/adsk.png"> 
+        </div>
+
+        <div class="content-wrapper">  
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("Autodesk View & Data - Drop'n Watch Demo", "Index", "Home")</p>
+            </div>         
+        </div>
+    </section>
+}
+
+<link rel="stylesheet" href="https://viewing.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery.layout-1.30.79.css")" />
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")"></script>
+<script src="https://viewing.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script> 
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.layout.min-1.30.79.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.filedrop.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/ADN/viewer.js")"></script>
+
+<style type="text/css">
+    #dropZone {
+        background: gray;
+        border: black dashed 3px;
+        width: 200px;
+        padding: 50px;
+        text-align: center;
+        color: white;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //var actionUrl = window.location + 'api/ViewData/uploadfiles';
+
+        var actionUrl = '@Url.Action("UploadFiles")';
+
+        $('#dropZone').filedrop({
+            url: actionUrl,
+            paramname: 'files',
+            maxFiles: 5,
+            maxfilesize: 20,
+            dragOver: function () {
+                $('#dropZone').css('background-color', '#0655AF');
+            },
+            dragLeave: function () {
+                $('#dropZone').css('background-color', '#579DEE');
+            },
+            drop: function () {
+                $('#dropZone').css('background-color', '#579DEE');
+            },
+            afterAll: function () {
+                $('#dropZone').html('The file(s) have been uploaded successfully!');
+            },
+            uploadFinished: function (i, file, response, time) {
+               
+            }
+        });
+
+        if (!!window.EventSource) {
+
+            var source = new EventSource(window.location + '/api/push/');
+
+            source.addEventListener('message', function (e) {
+
+                console.log(e.data);
+                var json = JSON.parse(e.data);
+
+                addToCombo(json.FileName, json.FileUrn);
+
+            }, false);
+
+            source.addEventListener('open', function (e) {
+                console.log("open!");
+            }, false);
+
+            source.addEventListener('error', function (e) {
+                if (e.readyState == EventSource.CLOSED) {
+                    console.log("error!");
+                }
+            }, false);
+        }
+
+        initialize();
+    });
+</script>
+
+
+<br>
+
+<div id="masterDiv" style="width: 80%; margin-left: 10%;">
+
+    <div id="layoutContainer" style="height:700px;">
+    
+        <div id="paneNorth" class="ui-layout-north" style="display:inline">
+            
+            <div id="dropZone" style="width:90%; background-color:#579DEE">Drop your files here...</div>
+
+            <br/>
+
+            <b>Select Model:</b>
+            <br/>
+            <select id="combo"
+                name="combo" 
+                onchange="onModelSelected()" 
+                style="height:20px; width:99%; font-family:sans-serif;">
+            </select>
+
+        </div>
+
+        <div id="paneCenter" class="ui-layout-center">
+
+            <div id="viewerContainer" style="height:100%;">
+          
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+

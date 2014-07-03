@@ -8,14 +8,14 @@ Permission to use, copy, modify, and distribute this software in object code for
 AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS. AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE. AUTODESK, INC. DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE UNINTERRUPTED OR ERROR FREE.
 
 
-Autodesk View And Data ASP.Net MVC Samples
+Autodesk View And Data - SAP integration Sample
 ---------------------------
-A set of ASP.Net MVC website samples using the Autodesk View and Data API
-
-
-
-Usage:
-
-See readme inside each sample folder
+An ASP.Net MVC website sample that illustrates integration between Autodesk View and Data API and SAP GWM technology
+  
+Requirements:  
+This sample has a dependency to the following Library-view-and-data-api-dotnet library.
+  
+Written by Philippe Leefsma:   
+http://adndevblog.typepad.com/cloud_and_mobile/philippe-leefsma.html
 
 

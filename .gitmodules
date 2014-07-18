@@ -1,0 +1,3 @@
+[submodule "library-dotnet"]
+	path = library-dotnet
+	url = https://github.com/Developer-Autodesk/library-dotnet-view.and.data.api

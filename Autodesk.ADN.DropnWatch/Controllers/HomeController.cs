@@ -21,8 +21,8 @@ namespace DropnWatch.Controllers
         static AdnViewDataClient _viewDataClient = 
             new AdnViewDataClient(
                 UserSettings.BASE_URL,
-                UserSettings.CLIENT_ID,
-                UserSettings.CLIENT_SECRET);
+                UserSettings.CONSUMER_KEY,
+                UserSettings.CONSUMER_SECRET);
 
         public ActionResult Index()
         {

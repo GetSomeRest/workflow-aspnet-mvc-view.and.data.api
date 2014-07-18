@@ -333,15 +333,14 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Autodesk.ADN.Toolkit\Autodesk.ADN.Toolkit.ViewData\Autodesk.ADN.Toolkit.ViewData.csproj">
+    <ProjectReference Include="..\library-dotnet\Autodesk.ADN.Toolkit.ViewData.csproj">
       <Project>{adbdd270-a9ad-4564-a999-61fad27fb992}</Project>
       <Name>Autodesk.ADN.Toolkit.ViewData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

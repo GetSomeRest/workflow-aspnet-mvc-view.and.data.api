@@ -20,7 +20,11 @@ That sample is using the [library-dotnet-view.and.data.api](https://github.com/D
 
 ##Setup/Usage Instructions
 
-*TODO*
+* Get your consumer key and secret key from http://developer.autodesk.com
+* Set the API keys in the UserSettings.cs file
+* Check out the [library-dotnet-view.and.data.api](https://github.com/Developer-Autodesk/library-dotnet-view.and.data.api) or clone the github repository using the --recursive option.
+* Change the BUCKET_NAME for uploading files in HomeController if you want
+* Compile and run the sample from the debugger or deploy in IIS (or equivalent webserver)
 
 ## License
 

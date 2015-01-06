@@ -1,5 +1,8 @@
 #Autodesk View And Data ASP.Net MVC Samples
 
+##Update
+
+This sample is retired, will not be maintained any more, please refer to other workflow samples.
 
 ##Description
 

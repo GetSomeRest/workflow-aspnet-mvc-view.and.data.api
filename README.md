@@ -1,3 +1,5 @@
+# Deprecated sample - not maintained anymore (Summer 2016)
+
 #Autodesk View And Data ASP.Net MVC Samples
 
 ##Update
